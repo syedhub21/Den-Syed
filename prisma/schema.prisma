@@ -10,7 +10,7 @@ datasource db {
   // FOR VERCEL DEPLOY: Change to provider = "postgresql"
   // FOR LOCAL DEV: Keep as "sqlite"
   // See prisma/schema.local.prisma for the SQLite version
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
