@@ -1,0 +1,104 @@
+// Local development schema — uses SQLite
+// This file is for LOCAL DEV ONLY. The main schema.prisma uses PostgreSQL for Vercel.
+//
+// To use locally:
+// 1. Run: cp prisma/schema.local.prisma prisma/schema.prisma
+// 2. Ensure .env has: DATABASE_URL="file:./dev.db"
+// 3. Run: bun run db:push && bun run dev
+//
+// Before deploying to Vercel:
+// 1. Run: git checkout prisma/schema.prisma  (restore PostgreSQL version)
+// 2. Ensure .env has your PostgreSQL DATABASE_URL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id             String   @id @default("profile")
+  name           String   @default("Syed")
+  heroGreeting   String   @default("Hi! I'm")
+  roles          String   @default("Frontend Developer,CS Student")
+  rotatingRoles  String   @default("Software Developer,Frontend Developer,CS Student,Designer,Creator,Problem Solver")
+  city           String   @default("")
+  bio            String   @default("")
+  email          String   @default("contact@syeds-den.com")
+  phone          String   @default("+123 456 7890")
+  location       String   @default("City, Country")
+  heroImage      String   @default("/images/hero-character.png")
+  aboutImage     String   @default("/images/about-character.png")
+  github         String   @default("https://github.com")
+  instagram      String   @default("https://instagram.com")
+  linkedin       String   @default("https://linkedin.com")
+  logoText       String   @default("Syed's-Den")
+  updatedAt      DateTime @updatedAt
+  createdAt      DateTime @default(now())
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  description   String   @default("")
+  technologies  String   @default("")
+  githubUrl     String   @default("")
+  liveUrl       String   @default("")
+  coverImage    String   @default("")
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([order])
+}
+
+model Service {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  icon        String
+  order       Int    @default(0)
+
+  @@index([order])
+}
+
+model TechStack {
+  id    String @id @default(cuid())
+  name  String
+  icon  String
+  order Int    @default(0)
+
+  @@index([order])
+}
+
+model Stat {
+  id     String @id @default(cuid())
+  label  String
+  value  Int
+  suffix String @default("+")
+  order  Int    @default(0)
+
+  @@index([order])
+}
+
+model SiteSettings {
+  id               String  @id @default("settings")
+  availabilityText String  @default("Available for projects")
+  updatedAt        DateTime @updatedAt
+  createdAt        DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

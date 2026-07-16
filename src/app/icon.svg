@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <!-- Lamp shade -->
+  <ellipse cx="16" cy="9" rx="7" ry="2.5" fill="#9999cc"/>
+  <!-- Stem -->
+  <rect x="15.2" y="11" width="1.6" height="16" fill="#3a3a3a"/>
+  <!-- Base -->
+  <ellipse cx="16" cy="27" rx="5" ry="1.5" fill="#2a2a2a"/>
+  <!-- Pull chain -->
+  <line x1="21" y1="9" x2="21" y2="15" stroke="#666" stroke-width="0.8"/>
+  <circle cx="21" cy="15.5" r="1.2" fill="#888"/>
+</svg>
