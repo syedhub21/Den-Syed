@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="256" height="256">
+  <title>Python</title>
+  <defs>
+    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="70.902" y1="6.394" x2="6.007" y2="71.289">
+      <stop offset="0" stop-color="#387eb8"/>
+      <stop offset="1" stop-color="#366994"/>
+    </linearGradient>
+    <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="106.293" y1="106.023" x2="40.275" y2="40.005">
+      <stop offset="0" stop-color="#ffe052"/>
+      <stop offset="1" stop-color="#ffc331"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Official Python Software Foundation logo path data, with thin dark outline -->
+  <path fill="url(#a)" stroke="#2a2a2a" stroke-width="0.5" d="M54.39 0c-2.34 0-4.59.21-6.56.57-5.81 1.03-6.86 3.18-6.86 7.15v5.24h13.75v1.75H36.07c-3.99 0-7.49 2.4-8.58 6.98-1.26 5.25-1.32 8.52 0 13.99 1 4.07 3.32 6.98 7.31 6.98h4.73v-6.29c0-4.57 3.96-8.6 8.66-8.6h13.74c3.85 0 6.92-3.17 6.92-7.04V7.72c0-3.75-3.16-6.57-6.92-7.15C59.05.18 56.73 0 54.39 0zm-7.5 4.23c1.43 0 2.6 1.18 2.6 2.63 0 1.45-1.17 2.62-2.6 2.62-1.44 0-2.6-1.17-2.6-2.62 0-1.45 1.16-2.63 2.6-2.63z" transform="translate(0 2.09)"/>
+
+  <path fill="url(#b)" stroke="#2a2a2a" stroke-width="0.5" d="M66.28 16.65v6.13c0 4.78-4.05 8.8-8.66 8.8H43.88c-3.79 0-6.93 3.24-6.93 7.04v13.2c0 3.75 3.26 5.96 6.93 7.04 4.39 1.29 8.6 1.52 13.74 0 3.49-1.01 6.93-3.05 6.93-7.04v-5.24H50.8v-1.75h20.68c4 0 5.49-2.79 6.87-6.98 1.44-4.31 1.38-8.46 0-13.99-1-3.99-2.87-6.98-6.87-6.98h-5.21zm-7.76 33.45c1.43 0 2.6 1.18 2.6 2.63 0 1.45-1.17 2.62-2.6 2.62-1.44 0-2.6-1.17-2.6-2.62 0-1.45 1.16-2.63 2.6-2.63z" transform="translate(0 2.09)"/>
+</svg>
