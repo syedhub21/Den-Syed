@@ -70,12 +70,6 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@syed",
   },
-  // Custom article:author + article:published_time tags (some inspectors
-  // look for these even when og:type is "website")
-  other: {
-    "article:author": "Syed",
-    "article:published_time": "2026-07-01T00:00:00Z",
-  },
 };
 
 export const viewport = {
