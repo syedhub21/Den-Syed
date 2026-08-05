@@ -17,9 +17,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-// ── SEO + Social Share metadata ────────────────────────────────────────────
-// This is what shows in link previews (WhatsApp, Slack, X, LinkedIn, etc.).
-// Keep it in sync with the hero profile so the preview matches the page.
+
 const SITE_URL = "https://den-syed.vercel.app";
 const TITLE = "Syed — Software Developer & Product Builder";
 const DESCRIPTION =
@@ -62,7 +60,7 @@ export const metadata: Metadata = {
     ],
     // Author + publish date for social preview inspectors
     authors: ["Syed"],
-    publishedTime: "2025-01-01T00:00:00Z",
+    publishedTime: "2026-07-01T00:00:00Z",
     modifiedTime: new Date().toISOString(),
   },
   twitter: {
@@ -76,7 +74,7 @@ export const metadata: Metadata = {
   // look for these even when og:type is "website")
   other: {
     "article:author": "Syed",
-    "article:published_time": "2025-01-01T00:00:00Z",
+    "article:published_time": "2026-07-01T00:00:00Z",
   },
 };
 
