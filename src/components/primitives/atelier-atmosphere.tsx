@@ -49,6 +49,12 @@ export function AtelierAtmosphere({ refreshKey = 0 }: AtelierAtmosphereProps) {
       let magX = 0, magY = 0, magActive = false;
       let currentMode: string | null = null;
 
+      // Big full-width CTAs (contact email + social rows): the big orange
+      // circle should track the cursor exactly — no magnetic pull, no
+      // element translate (matches the reference video).
+      const isFullWidthCta = (el: HTMLElement) =>
+        !!(el.closest(".contact__email") || el.closest(".social"));
+
       const onMove = (e: MouseEvent) => {
         mx = e.clientX;
         my = e.clientY;
@@ -68,20 +74,20 @@ export function AtelierAtmosphere({ refreshKey = 0 }: AtelierAtmosphereProps) {
           const mode = matched.dataset.cursor;
           if (mode !== currentMode) {
             currentMode = mode;
-            ring?.classList.remove("is-hover", "is-cta");
+            cursorEl?.classList.remove("is-hover", "is-cta");
             if (mode === "cta") {
-              ring?.classList.add("is-cta");
+              cursorEl?.classList.add("is-cta");
               const txt = matched.dataset.cursorText || "Click";
               if (label) {
                 label.textContent = txt;
                 label.classList.add("is-on");
               }
             } else if (mode === "link") {
-              ring?.classList.add("is-hover");
+              cursorEl?.classList.add("is-hover");
               label?.classList.remove("is-on");
             }
           }
-          if (mode === "cta") {
+          if (mode === "cta" && !isFullWidthCta(matched)) {
             magActive = true;
             const r = matched.getBoundingClientRect();
             const cx = r.left + r.width / 2;
@@ -94,7 +100,7 @@ export function AtelierAtmosphere({ refreshKey = 0 }: AtelierAtmosphereProps) {
         } else {
           if (currentMode !== null) {
             currentMode = null;
-            ring?.classList.remove("is-hover", "is-cta");
+            cursorEl?.classList.remove("is-hover", "is-cta");
             label?.classList.remove("is-on");
           }
           magActive = false; magX = 0; magY = 0;
@@ -125,10 +131,12 @@ export function AtelierAtmosphere({ refreshKey = 0 }: AtelierAtmosphereProps) {
         window.removeEventListener("mousemove", onMove);
       });
 
-      /* ---------- Magnetic hover translate on CTAs ---------- */
+      /* ---------- Magnetic hover translate on CTAs ----------
+         (skipped for the big full-width contact email + social rows —
+          they must stay put, only the cursor circle reacts) */
       const ctas = Array.from(
         document.querySelectorAll<HTMLElement>('[data-cursor="cta"]')
-      );
+      ).filter((el) => !isFullWidthCta(el));
       const ctaHandlers: Array<[HTMLElement, EventListener, EventListener]> = [];
       ctas.forEach((el) => {
         let raf = false;
